@@ -1,0 +1,2 @@
+0 0 * * * /path/to/mysql_backup.sh
+#runs at midnight every night
