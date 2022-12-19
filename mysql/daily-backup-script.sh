@@ -1,21 +1,27 @@
 #!/bin/bash
 
-# Set the directory where the backup files will be saved
-BACKUP_DIR="/path/to/backup/directory"
+# Set the username and password for the MySQL server
+MYSQL_USERNAME=myusername
+MYSQL_PASSWORD=mypassword
 
-# Set the database credentials
-DB_USER="username"
-DB_PASSWORD="password"
+# Set the names of the databases that you want to back up
+DATABASE_NAMES=(test test1 test2 test3)
 
-# Set the database names to be backed up
-DATABASES=(test test1 test2 test3 test4)
+# Set the directory where the backup files should be stored
+BACKUP_DIRECTORY=/var/lib/mysql-backups
 
-# Create the backup directory if it does not already exist
-if [ ! -d "$BACKUP_DIR" ]; then
-    mkdir -p "$BACKUP_DIR"
-fi
+# Create a backup of each database
+for DATABASE_NAME in "${DATABASE_NAMES[@]}"
+do
+    # Set the current date and time as the name of the backup file
+    BACKUP_FILE=mysql_backup_$DATABASE_NAME_$(date +%Y-%m-%d_%H-%M-%S).sql
 
-# Loop through each database and create a backup file
-for DB in "${DATABASES[@]}"; do
-    mysqldump -u "$DB_USER" -p"$DB_PASSWORD" "$DB" > "$BACKUP_DIR/$DB.sql"
+    # Create a backup of the database
+    mysqldump -u $MYSQL_USERNAME -p$MYSQL_PASSWORD $DATABASE_NAME > $BACKUP_FILE
+
+    # Compress the backup file
+    gzip $BACKUP_FILE
+
+    # Move the compressed file to the backup directory
+    mv $BACKUP_FILE.gz $BACKUP_DIRECTORY
 done
