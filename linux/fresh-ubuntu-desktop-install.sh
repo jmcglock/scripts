@@ -25,6 +25,9 @@ curl -fsSL https://download.opensuse.org/repositories/home:jstaf/xUbuntu_22.04/R
 sudo apt update
 sudo apt install onedriver
 
+# Install gnome-tweaks
+sudo apt install gnome-tweaks
+
 # Install Space
 sudo snap install space
 
@@ -36,5 +39,7 @@ sudo snap install starship
 
 # Install Brave
 sudo snap install brave
+
+# Install 
 
 sudo reboot
