@@ -2,9 +2,6 @@
 sudo apt update
 sudo apt upgrade -y
 
-# Install dpkg and wget
-sudo apt install dpkg wget -y
-
 # Install snap
 sudo apt update
 sudo apt install snapd
@@ -14,14 +11,13 @@ sudo snap install snap-store
 sudo snap install code --classic
 
 # Install Discord
-wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
-sudo dpkg -i discord.deb
-sudo apt install -f
+sudo snap install discord
 
 # Install Signal
-curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
-echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-sudo apt update && sudo apt install signal-desktop -y
+sudo snap install signal-desktop
+
+# Install Termius
+sudo snap install termius-app
 
 # Install OneDriver
 echo 'deb http://download.opensuse.org/repositories/home:/jstaf/xUbuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/home:jstaf.list
