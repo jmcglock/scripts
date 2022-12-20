@@ -5,23 +5,13 @@ sudo apt upgrade -y
 # Install dpkg and wget
 sudo apt install dpkg wget -y
 
-# Install Brave browser
-wget -qO- https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+# Install snap
 sudo apt update
-sudo apt install brave-browser -y
+sudo apt install snapd
+sudo snap install snap-store
 
 # Install Visual Studio Code
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
-sudo apt update
-sudo apt install code -y
-
-
-# Install Stacer
-wget https://github.com/oguzhaninan/Stacer/releases/download/v1.1.0/stacer_1.1.0_amd64.deb
-sudo dpkg -i stacer_1.1.0_amd64.deb
-sudo apt install -f
+sudo snap install code --classic
 
 # Install Discord
 wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
@@ -39,3 +29,16 @@ curl -fsSL https://download.opensuse.org/repositories/home:jstaf/xUbuntu_22.04/R
 sudo apt update
 sudo apt install onedriver
 
+# Install Space
+sudo snap install space
+
+# Install Spotify
+sudo snap install spotify
+
+# Install Starship
+sudo snap install starship
+
+# Install Brave
+sudo snap install brave
+
+sudo reboot
