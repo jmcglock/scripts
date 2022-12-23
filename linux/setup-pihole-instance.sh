@@ -8,5 +8,5 @@ sudo apt-get install git dnsutils bc -y
 git clone --depth 1 https://github.com/pi-hole/pi-hole.git Pi-hole
 
 # Navigate to the Pi-hole directory and run the installation script
-cd Pi-hole
-sudo bash install.sh
+cd /root/Pi-hole/automated
+sudo bash basic-install.sh
