@@ -7,27 +7,25 @@ ECHO Configure chocolatey
 
 choco feature enable -n allowGlobalConfirmation
 
-#install termius
 choco install termius
-#install 7zip
 choco install 7zip
-#install bleachbit
 choco install bleachbit
-#install choco cleaner
 choco install choco-cleaner 
-#install chocolatey gui
 choco install chocolateygui
-#install kubens
 choco install kubens
-#install kubernetes cli
 choco install kubernetes-cli
-#install helm
 choco install kubernetes-helm
-#install kompose
 choco install kubernetes-kompose
-#install speedtest
 choco install speedtest
-
+choco install brave
 choco install starship
+choco install vscode
+choco install mysql.workbench
+choco install jetbrainstoolbox
+choco install git
+choco install python
+choco install signal
+choco install discord
+choco install spotify
 
 choco feature disable -n allowGlobalConfirmation
