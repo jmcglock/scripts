@@ -1,5 +1,5 @@
 #install Chocolatey 
-$apps = @("termius","7zip","bleachbit","choco-cleaner","chocolateygui","kubens","kubernetes-cli","kubernetes-helm","kubernetes-kompose","speedtest","brave","starship","vscode","mysql.workbench","jetbrainstoolbox","git","python","signal","discord","spotify")
+$apps = @("termius","7zip","bleachbit","choco-cleaner","chocolateygui","kubens","kubernetes-cli","kubernetes-helm","brave","starship","vscode","mysql.workbench","jetbrainstoolbox","git","python","signal","discord","spotify")
  Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) 
 ECHO Installing apps 
 ECHO Configure chocolatey 
