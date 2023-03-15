@@ -6,3 +6,6 @@ $schedule = New-JobTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpa
 
 # Register the scheduled job
 Register-ScheduledJob -Name "Disk Cleanup" -ScriptBlock {Invoke-Expression $args[0]} -ArgumentList $command -Trigger $schedule
+
+#Start the scheduled job
+Start-Job -Name "Disk Cleanup"
