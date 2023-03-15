@@ -1,16 +1,15 @@
 #!/bin/bash
+# Add a sudo user
+adduser <YOUR USERNAME> --gecos "Last,First,123 Main St.,Seattle,WA,12345,123-456-7890" --disabled-password
+echo "<YOUR USERNAME>:<YOUR PASSWORD>" | chpasswd
+usermod -aG sudo <YOUR USERNAME>
 
-# run this after a fresh install of ubuntu server
-# Check for and install updates
-sudo apt-get update
-sudo apt-get upgrade -y
+# Update SSH port to 69 (nice)
+sed -i 's/#Port 22/Port 69/g' /etc/ssh/sshd_config
 
-# Install Docker
-sudo apt-get install docker -y
+# Apply any updates and upgrades
+su <YOUR USERNAME>
+apt-get update && apt-get upgrade -y
 
-# Create a new sudo user named "YOUR NAME"
-adduser YOUR NAME
-usermod -aG sudo YOUR NAME
-
-# Reboot
-sudo reboot
+# Reboot the server
+shutdown -r now
