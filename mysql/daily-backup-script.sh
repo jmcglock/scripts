@@ -10,11 +10,14 @@ DATABASE_NAMES=(test test1 test2 test3)
 # Set the directory where the backup files should be stored
 BACKUP_DIRECTORY=/var/lib/mysql-backups
 
+# Create an array of the current date components
+CURRENT_DATE=($(date +'%Y-%m-%d_%H-%M-%S'))
+
 # Create a backup of each database
 for DATABASE_NAME in "${DATABASE_NAMES[@]}"
 do
-    # Set the current date and time as the name of the backup file
-    BACKUP_FILE=mysql_backup_$DATABASE_NAME_$(date +%Y-%m-%d_%H-%M-%S).sql
+    # Set the name of the backup file
+    BACKUP_FILE=mysql_backup_$DATABASE_NAME_${CURRENT_DATE[0]}.sql
 
     # Create a backup of the database
     mysqldump -u $MYSQL_USERNAME -p$MYSQL_PASSWORD $DATABASE_NAME > $BACKUP_FILE
